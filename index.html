@@ -1465,7 +1465,7 @@
             width: 0%;
             background: var(--amarelo);
             border-radius: 2px;
-            transition: width 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: width 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .loader-txt {
@@ -2254,16 +2254,20 @@
 
     <script>
         // ===== LOADER =====
-        const loader    = document.getElementById('loader');
-        const loaderBar = document.getElementById('loaderBar');
+        const loader     = document.getElementById('loader');
+        const loaderBar  = document.getElementById('loaderBar');
+        const startTime  = Date.now();
+        const MIN_DURACAO = 4000; // 4 segundos mínimos
 
         requestAnimationFrame(() => { loaderBar.style.width = '100%'; });
 
         window.addEventListener('load', () => {
+            const decorrido  = Date.now() - startTime;
+            const restante   = Math.max(0, MIN_DURACAO - decorrido);
             setTimeout(() => {
                 loader.classList.add('saindo');
                 setTimeout(() => loader.remove(), 750);
-            }, 350);
+            }, restante);
         });
 
         // ===== MENU MOBILE =====
