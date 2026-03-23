@@ -2253,24 +2253,7 @@
 
 
     <script>
-        // ===== LOADER =====
-        const loader     = document.getElementById('loader');
-        const loaderBar  = document.getElementById('loaderBar');
-        const startTime  = Date.now();
-        const MIN_DURACAO = 4000; // 4 segundos mínimos
-
-        requestAnimationFrame(() => { loaderBar.style.width = '100%'; });
-
-        window.addEventListener('load', () => {
-            const decorrido  = Date.now() - startTime;
-            const restante   = Math.max(0, MIN_DURACAO - decorrido);
-            setTimeout(() => {
-                loader.classList.add('saindo');
-                setTimeout(() => loader.remove(), 750);
-            }, restante);
-        });
-
-        // ===== MENU MOBILE =====
+        // ===== MENU MOBILE — funcional, inicia imediatamente =====
         const hamburger = document.getElementById('hamburger');
         const navMenu   = document.getElementById('navMenu');
 
@@ -2290,32 +2273,16 @@
             });
         });
 
-        // ===== ANIMAÇÕES DE ENTRADA =====
-        const fadeEls = document.querySelectorAll('.fade-up');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visivel'), i * 90);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
-
-        fadeEls.forEach(el => observer.observe(el));
-
-        // ===== HEADER — efeito ao rolar =====
-        const header = document.querySelector('header');
+        // ===== HEADER / NAV — funcionais, iniciam imediatamente =====
+        const header   = document.querySelector('header');
+        const secoes   = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav.desktop-nav a');
 
         window.addEventListener('scroll', () => {
             header.style.boxShadow = window.scrollY > 40
                 ? '0 2px 32px rgba(0,0,0,0.28)'
                 : '0 2px 24px rgba(0,0,0,0.18)';
         }, { passive: true });
-
-        // ===== LINK ATIVO NA NAV =====
-        const secoes   = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav.desktop-nav a');
 
         window.addEventListener('scroll', () => {
             let atual = '';
@@ -2327,56 +2294,91 @@
             });
         }, { passive: true });
 
-        // ===== TYPEWRITER — slogan do Hero =====
-        const twEl = document.getElementById('hero-typewriter');
-        if (twEl) {
-            const texto = twEl.getAttribute('data-typewriter');
-            twEl.textContent = '';
-            const cursor = document.createElement('span');
-            cursor.className = 'tw-cursor';
-            cursor.setAttribute('aria-hidden', 'true');
-            twEl.appendChild(cursor);
+        // ===== EFEITOS VISUAIS — iniciam somente após o loader =====
+        function iniciarEfeitos() {
 
-            let i = 0;
-            const digitar = () => {
-                if (i < texto.length) {
-                    twEl.insertBefore(document.createTextNode(texto[i]), cursor);
-                    i++;
-                    setTimeout(digitar, i < 5 ? 80 : 32);
-                } else {
-                    setTimeout(() => cursor.remove(), 1400);
-                }
-            };
-            setTimeout(digitar, 900);
+            // Fade-up ao rolar
+            const fadeEls = document.querySelectorAll('.fade-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => entry.target.classList.add('visivel'), i * 90);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+            fadeEls.forEach(el => observer.observe(el));
+
+            // Typewriter — slogan do Hero
+            const twEl = document.getElementById('hero-typewriter');
+            if (twEl) {
+                const texto = twEl.getAttribute('data-typewriter');
+                twEl.textContent = '';
+                const cursor = document.createElement('span');
+                cursor.className = 'tw-cursor';
+                cursor.setAttribute('aria-hidden', 'true');
+                twEl.appendChild(cursor);
+
+                let i = 0;
+                const digitar = () => {
+                    if (i < texto.length) {
+                        twEl.insertBefore(document.createTextNode(texto[i]), cursor);
+                        i++;
+                        setTimeout(digitar, i < 5 ? 80 : 32);
+                    } else {
+                        setTimeout(() => cursor.remove(), 1400);
+                    }
+                };
+                setTimeout(digitar, 300);
+            }
+
+            // Contador animado — stats do Hero
+            function animarContador(el) {
+                const alvo    = parseInt(el.getAttribute('data-val'));
+                const prefixo = el.getAttribute('data-prefix') || '';
+                const sufixo  = el.getAttribute('data-suffix') || '';
+                const duracao = 1800;
+                const inicio  = performance.now();
+                const passo = (agora) => {
+                    const progresso = Math.min((agora - inicio) / duracao, 1);
+                    const ease      = 1 - Math.pow(1 - progresso, 3);
+                    el.textContent  = prefixo + Math.round(ease * alvo) + sufixo;
+                    if (progresso < 1) requestAnimationFrame(passo);
+                };
+                requestAnimationFrame(passo);
+            }
+
+            const statsEl = document.querySelector('.hero-stats');
+            if (statsEl) {
+                const statsObs = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        document.querySelectorAll('.stat-num').forEach(animarContador);
+                        statsObs.disconnect();
+                    }
+                }, { threshold: 0.5 });
+                statsObs.observe(statsEl);
+            }
         }
 
-        // ===== CONTADOR ANIMADO — stats do Hero =====
-        function animarContador(el) {
-            const alvo    = parseInt(el.getAttribute('data-val'));
-            const prefixo = el.getAttribute('data-prefix') || '';
-            const sufixo  = el.getAttribute('data-suffix') || '';
-            const duracao = 1800;
-            const inicio  = performance.now();
+        // ===== LOADER =====
+        const loader      = document.getElementById('loader');
+        const loaderBar   = document.getElementById('loaderBar');
+        const startTime   = Date.now();
+        const MIN_DURACAO = 4000;
 
-            const passo = (agora) => {
-                const progresso = Math.min((agora - inicio) / duracao, 1);
-                const ease      = 1 - Math.pow(1 - progresso, 3);
-                el.textContent  = prefixo + Math.round(ease * alvo) + sufixo;
-                if (progresso < 1) requestAnimationFrame(passo);
-            };
-            requestAnimationFrame(passo);
-        }
+        requestAnimationFrame(() => { loaderBar.style.width = '100%'; });
 
-        const statsEl = document.querySelector('.hero-stats');
-        if (statsEl) {
-            const statsObs = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    document.querySelectorAll('.stat-num').forEach(animarContador);
-                    statsObs.disconnect();
-                }
-            }, { threshold: 0.6 });
-            statsObs.observe(statsEl);
-        }
+        window.addEventListener('load', () => {
+            const decorrido = Date.now() - startTime;
+            const restante  = Math.max(0, MIN_DURACAO - decorrido);
+            setTimeout(() => {
+                loader.classList.add('saindo');
+                setTimeout(() => {
+                    loader.remove();
+                    iniciarEfeitos(); // ← efeitos iniciam após o loader sumir
+                }, 750);
+            }, restante);
+        });
     </script>
 </body>
 </html>
