@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Família Agrícola de Chapadinha</title>
+    <meta name="description" content="Escola Família Agrícola de Chapadinha – Educação do Campo com Pedagogia da Alternância desde 1988. Técnico em Agropecuária integrado ao Ensino Médio. Nova Venécia, ES.">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Escola Família Agrícola de Chapadinha">
+    <meta property="og:description" content="Educação do Campo com Pedagogia da Alternância desde 1988. Formando jovens para o desenvolvimento sustentável do campo. Nova Venécia, ES.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="images/og-image.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Escola Família Agrícola de Chapadinha">
+    <meta name="twitter:description" content="Educação do Campo com Pedagogia da Alternância desde 1988. Nova Venécia, ES.">
+    <meta name="twitter:image" content="images/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ===== RESET E VARIÁVEIS ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --azul-escuro:   #1C3A72;
+            --azul-medio:    #2554A0;
+            --azul-claro:    #4A7EC7;
+            --azul-bg:       #EEF4FB;
+            --amarelo:       #F9C413;
+            --amarelo-dark:  #D4A000;
+            --verde:         #2E7D32;
+            --branco:        #FFFFFF;
+            --cinza-claro:   #F5F7FA;
+            --cinza-borda:   #E2E8F0;
+            --texto-escuro:  #1A2540;
+            --texto-medio:   #4A5568;
+            --header-h:      80px;
+            --radius:        14px;
+            --sombra:        0 4px 24px rgba(28, 58, 114, 0.10);
+            --sombra-hover:  0 10px 36px rgba(28, 58, 114, 0.18);
+            --transicao:     all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--texto-escuro);
+            background: var(--branco);
+            overflow-x: hidden;
+            line-height: 1.65;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-h);
+            background: rgba(28, 58, 114, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
+            transition: var(--transicao);
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-badge {
+            width: 48px;
+            height: 48px;
+            background: var(--amarelo);
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 17px;
+            color: var(--azul-escuro);
+            flex-shrink: 0;
+            letter-spacing: -0.03em;
+        }
+
+        .logo-texto strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--branco);
+            line-height: 1.25;
+        }
+
+        .logo-texto span {
+            font-size: 11.5px;
+            color: rgba(249, 196, 19, 0.85);
+            font-weight: 500;
+        }
+
+        /* Nav desktop */
+        nav.desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        nav.desktop-nav a {
+            color: rgba(255, 255, 255, 0.82);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 9px 15px;
+            border-radius: 9px;
+            transition: var(--transicao);
+        }
+
+        nav.desktop-nav a:hover {
+            color: var(--amarelo);
+            background: rgba(249, 196, 19, 0.1);
+        }
+
+        .nav-cta {
+            background: var(--amarelo) !important;
+            color: var(--azul-escuro) !important;
+            font-weight: 700 !important;
+            padding: 10px 22px !important;
+            margin-left: 8px;
+        }
+
+        .nav-cta:hover {
+            background: var(--amarelo-dark) !important;
+            color: var(--azul-escuro) !important;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--branco);
+            border-radius: 3px;
+            transition: var(--transicao);
+        }
+
+        .hamburger.ativo span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .hamburger.ativo span:nth-child(2) { opacity: 0; }
+        .hamburger.ativo span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+        /* Nav mobile */
+        #navMenu {
+            display: none;
+            position: fixed;
+            top: var(--header-h);
+            left: 0;
+            right: 0;
+            background: #0d1e4a;
+            padding: 24px 28px 32px;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 990;
+            border-bottom: 2px solid rgba(249, 196, 19, 0.25);
+        }
+
+        #navMenu.aberto {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #navMenu a {
+            display: block;
+            color: rgba(255, 255, 255, 0.82);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            transition: color 0.2s ease;
+        }
+
+        #navMenu a:last-child { border-bottom: none; }
+        #navMenu a:hover { color: var(--amarelo); }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            padding-top: var(--header-h);
+            background: linear-gradient(155deg, #09183a 0%, #1C3A72 50%, #163d1a 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 85%, rgba(249, 196, 19, 0.09) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 15%, rgba(74, 126, 199, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(46, 125, 50, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 28px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: rgba(249, 196, 19, 0.12);
+            border: 1px solid rgba(249, 196, 19, 0.35);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--amarelo);
+            margin-bottom: 26px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-chip-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--amarelo);
+            border-radius: 50%;
+            animation: pisca 2.5s infinite;
+        }
+
+        @keyframes pisca {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(30px, 4vw, 54px);
+            font-weight: 900;
+            color: var(--branco);
+            line-height: 1.12;
+            margin-bottom: 22px;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-content h1 em {
+            font-style: normal;
+            color: var(--amarelo);
+        }
+
+        .hero-content h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(14px, 1.5vw, 17px);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.8;
+            margin-bottom: 44px;
+            max-width: 540px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-amarelo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            transition: var(--transicao);
+            border: 2px solid transparent;
+        }
+
+        .btn-amarelo:hover {
+            background: var(--amarelo-dark);
+            color: var(--azul-escuro);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(249, 196, 19, 0.38);
+        }
+
+        .btn-contorno {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--branco);
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transicao);
+            border: 2px solid rgba(255, 255, 255, 0.38);
+        }
+
+        .btn-contorno:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--branco);
+            border-color: rgba(255, 255, 255, 0.65);
+            transform: translateY(-2px);
+        }
+
+        /* Card hero */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 24px;
+            padding: 44px 40px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-emoji {
+            font-size: 84px;
+            display: block;
+            margin-bottom: 22px;
+            animation: flutua 4.5s ease-in-out infinite;
+        }
+
+        @keyframes flutua {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        .hero-card > p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+        }
+
+        .stat-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+            color: var(--amarelo);
+            line-height: 1;
+            display: block;
+        }
+
+        .stat-leg {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.55);
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Onda separadora */
+        .onda-sep {
+            line-height: 0;
+            display: block;
+        }
+
+        .onda-sep svg { display: block; width: 100%; }
+
+        /* ===== SEÇÕES — estrutura base ===== */
+        .secao {
+            padding: 100px 0;
+        }
+
+        .secao-cinza { background: var(--cinza-claro); }
+        .secao-branca { background: var(--branco); }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        .rotulo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(249, 196, 19, 0.12);
+            color: #8a6400;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            border: 1px solid rgba(249, 196, 19, 0.3);
+            margin-bottom: 16px;
+        }
+
+        .titulo-secao {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(26px, 3vw, 42px);
+            font-weight: 800;
+            color: var(--texto-escuro);
+            line-height: 1.18;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .titulo-secao .destaque { color: var(--azul-escuro); }
+
+        .desc-secao {
+            font-size: 16.5px;
+            color: var(--texto-medio);
+            line-height: 1.78;
+            max-width: 680px;
+        }
+
+        /* ===== SOBRE ===== */
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .sobre-texto p {
+            font-size: 15.5px;
+            color: var(--texto-medio);
+            line-height: 1.9;
+            margin-bottom: 22px;
+        }
+
+        .sobre-texto p:last-child { margin-bottom: 0; }
+
+        .cards-missao {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .card-missao {
+            background: var(--cinza-claro);
+            border-radius: var(--radius);
+            padding: 28px 28px 28px 24px;
+            border-left: 4px solid var(--amarelo);
+            transition: var(--transicao);
+        }
+
+        .card-missao:hover {
+            transform: translateX(5px);
+            box-shadow: var(--sombra);
+        }
+
+        .card-missao .icone {
+            font-size: 28px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .card-missao h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--azul-escuro);
+            margin-bottom: 8px;
+        }
+
+        .card-missao p {
+            font-size: 14px;
+            color: var(--texto-medio);
+            line-height: 1.72;
+        }
+
+        /* ===== PEDAGOGIA ===== */
+        .secao-azul {
+            background: linear-gradient(140deg, #1C3A72 0%, #0c1f50 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .secao-azul::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 8% 55%, rgba(249, 196, 19, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 92% 45%, rgba(46, 125, 50, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .secao-azul .rotulo {
+            background: rgba(249, 196, 19, 0.13);
+            color: var(--amarelo);
+            border-color: rgba(249, 196, 19, 0.3);
+        }
+
+        .secao-azul .titulo-secao { color: var(--branco); }
+        .secao-azul .desc-secao   { color: rgba(255, 255, 255, 0.7); }
+
+        .grid-alternancia {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 56px;
+        }
+
+        .card-alternancia {
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            border-radius: 20px;
+            padding: 36px;
+            transition: var(--transicao);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-alternancia::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--amarelo), transparent);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .card-alternancia:hover {
+            background: rgba(255, 255, 255, 0.09);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+        }
+
+        .card-alternancia .icone-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(249, 196, 19, 0.13);
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card-alternancia h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--amarelo);
+            margin-bottom: 12px;
+        }
+
+        .card-alternancia p {
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.68);
+            line-height: 1.78;
+        }
+
+        /* Diagrama ciclo */
+        .ciclo-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 56px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ciclo {
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            border-radius: 22px;
+            padding: 36px 56px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            max-width: 720px;
+            width: 100%;
+        }
+
+        .ciclo-item {
+            flex: 1;
+            text-align: center;
+            padding: 0 16px;
+        }
+
+        .ciclo-emoji {
+            font-size: 52px;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .ciclo-nome {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--branco);
+            margin-bottom: 4px;
+        }
+
+        .ciclo-sub {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .ciclo-seta {
+            font-size: 28px;
+            color: var(--amarelo);
+            flex-shrink: 0;
+            padding: 0 8px;
+        }
+
+        /* ===== CURSOS ===== */
+        .card-curso {
+            background: var(--branco);
+            border-radius: 22px;
+            padding: 50px;
+            box-shadow: var(--sombra);
+            border: 1px solid var(--cinza-borda);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .curso-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(249, 196, 19, 0.12);
+            color: #7a5600;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid rgba(249, 196, 19, 0.35);
+            margin-bottom: 20px;
+        }
+
+        .curso-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--azul-escuro);
+            line-height: 1.28;
+            margin-bottom: 18px;
+        }
+
+        .curso-info p {
+            font-size: 15px;
+            color: var(--texto-medio);
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+
+        .curso-detalhes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .detalhe {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+        }
+
+        .detalhe-icone {
+            width: 38px;
+            height: 38px;
+            background: var(--azul-bg);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .detalhe-texto strong {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--azul-escuro);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .detalhe-texto span {
+            font-size: 14px;
+            color: var(--texto-medio);
+        }
+
+        /* Áreas do curso */
+        .areas-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .area-chip {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            background: var(--cinza-claro);
+            border-radius: 11px;
+            padding: 15px 18px;
+            border: 1px solid var(--cinza-borda);
+            transition: var(--transicao);
+        }
+
+        .area-chip:hover {
+            border-color: var(--azul-claro);
+            background: var(--azul-bg);
+        }
+
+        .area-chip .em { font-size: 22px; }
+        .area-chip span { font-size: 14px; font-weight: 600; color: var(--texto-escuro); }
+
+        /* Abrangência */
+        .abrangencia {
+            margin-top: 56px;
+        }
+
+        .abrangencia h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            margin-bottom: 8px;
+        }
+
+        .abrangencia > p {
+            font-size: 15px;
+            color: var(--texto-medio);
+            margin-bottom: 20px;
+        }
+
+        .municipios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .municipio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--branco);
+            border: 1.5px solid var(--cinza-borda);
+            border-radius: 50px;
+            padding: 9px 18px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--texto-escuro);
+            transition: var(--transicao);
+        }
+
+        .municipio:hover {
+            border-color: var(--azul-medio);
+            color: var(--azul-escuro);
+            background: var(--azul-bg);
+        }
+
+        .municipio::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--amarelo);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ===== HISTÓRIA — LINHA DO TEMPO ===== */
+        .timeline {
+            position: relative;
+            margin-top: 60px;
+            padding-left: 52px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2.5px;
+            background: linear-gradient(180deg, var(--amarelo), var(--azul-medio) 60%, var(--verde));
+            border-radius: 4px;
+        }
+
+        .evento {
+            position: relative;
+            margin-bottom: 44px;
+        }
+
+        .evento:last-child { margin-bottom: 0; }
+
+        .evento-dot {
+            position: absolute;
+            left: -42px;
+            top: 5px;
+            width: 17px;
+            height: 17px;
+            background: var(--amarelo);
+            border-radius: 50%;
+            border: 3px solid var(--branco);
+            box-shadow: 0 0 0 2.5px var(--amarelo);
+        }
+
+        .evento-ano {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--azul-medio);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .evento h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            margin-bottom: 9px;
+        }
+
+        .evento p {
+            font-size: 14.5px;
+            color: var(--texto-medio);
+            line-height: 1.78;
+        }
+
+        /* ===== DEPOIMENTOS ===== */
+        .dep-intro {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 60px;
+        }
+
+        .dep-intro .rotulo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .dep-intro .titulo-secao { text-align: center; }
+        .dep-intro .desc-secao   { text-align: center; max-width: 100%; }
+
+        .grid-videos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card-video {
+            background: var(--branco);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            border: 1px solid var(--cinza-borda);
+            transition: var(--transicao);
+        }
+
+        .card-video:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .video-thumb {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(140deg, #1C3A72, #2554A0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .play-btn {
+            width: 62px;
+            height: 62px;
+            background: var(--amarelo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--azul-escuro);
+            transition: var(--transicao);
+        }
+
+        .video-thumb:hover .play-btn {
+            transform: scale(1.1);
+            background: var(--amarelo-dark);
+        }
+
+        .video-body { padding: 22px; }
+
+        .video-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(249, 196, 19, 0.1);
+            color: #7a5600;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 11px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+        }
+
+        .video-body h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            margin-bottom: 6px;
+        }
+
+        .video-body p { font-size: 13px; color: var(--texto-medio); }
+
+        .dep-ig-link {
+            text-align: center;
+            margin-top: 36px;
+            font-size: 14px;
+            color: var(--texto-medio);
+        }
+
+        .dep-ig-link a {
+            color: var(--azul-escuro);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .dep-ig-link a:hover { text-decoration: underline; }
+
+        /* ===== CONTATO ===== */
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cards-contato {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .card-contato {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 22px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: var(--transicao);
+        }
+
+        .card-contato:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: rgba(249, 196, 19, 0.3);
+        }
+
+        .contato-icone {
+            width: 48px;
+            height: 48px;
+            background: rgba(249, 196, 19, 0.13);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--amarelo);
+            flex-shrink: 0;
+        }
+
+        .contato-dados strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 5px;
+        }
+
+        .contato-dados span,
+        .contato-dados a {
+            font-size: 15px;
+            color: var(--branco);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .contato-dados a:hover { color: var(--amarelo); }
+
+        /* Formulário */
+        .form-wrap {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 22px;
+            padding: 44px;
+        }
+
+        .form-wrap h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--branco);
+            margin-bottom: 6px;
+        }
+
+        .form-wrap > p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+        }
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.14);
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 14.5px;
+            color: var(--branco);
+            font-family: 'Open Sans', sans-serif;
+            transition: var(--transicao);
+            outline: none;
+        }
+
+        .campo input::placeholder,
+        .campo textarea::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+        .campo input:focus,
+        .campo textarea:focus {
+            border-color: var(--amarelo);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .campo textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .campos-duplos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            border: none;
+            padding: 16px;
+            border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transicao);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-enviar:hover {
+            background: var(--amarelo-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(249, 196, 19, 0.35);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #080f22;
+            padding: 64px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 52px;
+        }
+
+        .footer-marca .logo-badge { margin-bottom: 18px; }
+
+        .footer-marca strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: var(--branco);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .footer-marca p {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .sociais {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.55);
+            text-decoration: none;
+            font-size: 16px;
+            transition: var(--transicao);
+        }
+
+        .social:hover {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            border-color: var(--amarelo);
+        }
+
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--branco);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 22px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .footer-col ul li a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.47);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a::before {
+            content: '›';
+            color: var(--amarelo);
+            font-size: 17px;
+            line-height: 1;
+        }
+
+        .footer-col ul li a:hover { color: var(--amarelo); }
+
+        .footer-base {
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 22px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-base p   { font-size: 12.5px; color: rgba(255, 255, 255, 0.35); }
+        .footer-base span { font-size: 12px;  color: rgba(255, 255, 255, 0.25); }
+
+        /* ===== WHATSAPP FLUTUANTE ===== */
+        .wp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 998;
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 27px;
+            text-decoration: none;
+            box-shadow: 0 4px 18px rgba(37, 211, 102, 0.42);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.58);
+        }
+
+        /* ===== ANIMAÇÃO ENTRADA ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .fade-up.visivel {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVO ===== */
+
+        /* Tablet grande */
+        @media (max-width: 1023px) {
+            .hero-container   { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-content h2  { max-width: 100%; }
+            .hero-btns        { justify-content: center; }
+            .hero-visual      { order: -1; }
+            .hero-card        { max-width: 380px; margin: 0 auto; }
+            .sobre-grid       { grid-template-columns: 1fr; gap: 40px; }
+            .grid-alternancia { grid-template-columns: 1fr; }
+            .card-curso       { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
+            .contato-grid     { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid      { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .grid-videos      { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Tablet pequeno */
+        @media (max-width: 768px) {
+            nav.desktop-nav { display: none; }
+            .hamburger      { display: flex; }
+            #navMenu        { display: block; }
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            :root { --header-h: 68px; }
+
+            .secao { padding: 70px 0; }
+
+            .ciclo {
+                flex-direction: column;
+                gap: 18px;
+                padding: 28px 24px;
+            }
+
+            .ciclo-seta { transform: rotate(90deg); }
+
+            .footer-grid      { grid-template-columns: 1fr; gap: 32px; }
+            .footer-base      { flex-direction: column; text-align: center; }
+            .grid-videos      { grid-template-columns: 1fr; }
+            .campos-duplos    { grid-template-columns: 1fr; }
+            .curso-detalhes   { grid-template-columns: 1fr; }
+            .hero-container   { padding: 50px 20px; }
+            .form-wrap        { padding: 28px 22px; }
+            .card-curso       { padding: 24px; }
+        }
+
+        /* HD */
+        @media (min-width: 1440px) {
+            .hero-content h1 { font-size: 58px; }
+        }
+
+        /* 4K */
+        @media (min-width: 1920px) {
+            .container, .hero-container { max-width: 1440px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="topo">
+        <div class="header-inner">
+            <a href="#hero" class="logo" aria-label="Escola Família Agrícola de Chapadinha — Início">
+                <div class="logo-badge" aria-hidden="true">EFA</div>
+                <div class="logo-texto">
+                    <strong>EFA Chapadinha</strong>
+                    <span>Educação do Campo · Nova Venécia/ES</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Menu principal">
+                <a href="#sobre">Sobre</a>
+                <a href="#pedagogia">Pedagogia</a>
+                <a href="#cursos">Cursos</a>
+                <a href="#historia">História</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#contato" class="nav-cta">Contato</a>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Nav mobile — irmão do header, nunca filho -->
+    <nav id="navMenu" aria-label="Menu mobile" aria-hidden="true">
+        <a href="#sobre">Sobre a EFA</a>
+        <a href="#pedagogia">Pedagogia da Alternância</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#historia">Nossa história</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" aria-labelledby="hero-h1">
+        <div class="hero-container">
+
+            <!-- Conteúdo principal -->
+            <div class="hero-content">
+                <div class="hero-chip" aria-label="Fundada em 1988">
+                    <span class="hero-chip-dot" aria-hidden="true"></span>
+                    Desde 1988 · Educação do Campo
+                </div>
+
+                <h1 id="hero-h1">
+                    Escola Família Agrícola<br>
+                    <em>de Chapadinha</em>
+                </h1>
+
+                <h2>
+                    Desde 1988, entre a escola e a comunidade, fortalecendo o elo entre estudante, família e monitor na construção de um ensino contextualizado.
+                </h2>
+
+                <div class="hero-btns">
+                    <a href="#cursos" class="btn-amarelo">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        Conheça os cursos
+                    </a>
+                    <a href="#sobre" class="btn-contorno">
+                        <i class="fas fa-seedling" aria-hidden="true"></i>
+                        Nossa missão
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card visual -->
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <span class="hero-emoji" role="img" aria-label="Girassol — símbolo da educação do campo">🌻</span>
+                    <p>
+                        Formando jovens do campo com conhecimento técnico, identidade cultural e valores comunitários para um futuro sustentável.
+                    </p>
+                    <div class="hero-stats" role="list">
+                        <div role="listitem">
+                            <span class="stat-num">+35</span>
+                            <span class="stat-leg">Anos de história</span>
+                        </div>
+                        <div role="listitem">
+                            <span class="stat-num">7+</span>
+                            <span class="stat-leg">Municípios atendidos</span>
+                        </div>
+                        <div role="listitem">
+                            <span class="stat-num">4</span>
+                            <span class="stat-leg">Anos de curso técnico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onda de transição -->
+        <div class="onda-sep" aria-hidden="true">
+            <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,45 C360,90 1080,0 1440,45 L1440,90 L0,90 Z" fill="#ffffff"/>
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- ===== SOBRE ===== -->
+    <section id="sobre" class="secao secao-branca" aria-labelledby="sobre-h2">
+        <div class="container">
+
+            <div class="fade-up">
+                <div class="rotulo"><i class="fas fa-seedling" aria-hidden="true"></i> Sobre a EFA</div>
+                <h2 class="titulo-secao" id="sobre-h2">
+                    Missão de <span class="destaque">formar e enraizar</span>
+                </h2>
+                <p class="desc-secao">
+                    A Escola Família Agrícola de Chapadinha prepara os jovens com formação geral e profissional em atividades produtivas ligadas ao campo — nos aspectos técnicos, administrativos e ambientais da produção sustentável.
+                </p>
+            </div>
+
+            <div class="sobre-grid fade-up">
+                <div class="sobre-texto">
+                    <p>
+                        Nossa missão educacional é preparar o(a) jovem com formação geral e profissional em atividades produtivas ligadas ao campo, tanto nos aspectos técnicos, administrativos e ambientais da produção, do beneficiamento e prestação de serviços de assistência técnica e extensão rural — em vista de promover o desenvolvimento sustentável e solidário do meio rural.
+                    </p>
+                    <p>
+                        O enfoque profissionalizante está na formação de jovens capazes de gerenciar atividades produtivas de forma autônoma e com qualificação para desenvolver atividades ligadas ao espaço rural. Este serviço de educação contribui no desenvolvimento territorial através do fortalecimento da agricultura familiar.
+                    </p>
+                    <p>
+                        Estimulamos a diversificação agropecuária, a produção sustentável, o cuidado com o meio ambiente, geração de renda e qualidade de vida — propiciando o protagonismo dos(as) jovens tanto a nível familiar quanto comunitário.
+                    </p>
+                </div>
+
+                <div class="cards-missao">
+                    <div class="card-missao">
+                        <span class="icone" role="img" aria-label="Agricultura familiar">🌾</span>
+                        <h3>Agricultura familiar</h3>
+                        <p>Fortalecimento da produção familiar sustentável, com diversificação agropecuária e respeito ao meio ambiente.</p>
+                    </div>
+                    <div class="card-missao">
+                        <span class="icone" role="img" aria-label="Comunidade">🤝</span>
+                        <h3>Desenvolvimento comunitário</h3>
+                        <p>Protagonismo juvenil que se estende da família à comunidade, gerando impacto real no desenvolvimento territorial.</p>
+                    </div>
+                    <div class="card-missao">
+                        <span class="icone" role="img" aria-label="Sustentabilidade">🌱</span>
+                        <h3>Qualidade de vida no campo</h3>
+                        <p>Geração de renda, preservação cultural e incentivo para que os jovens permaneçam e se realizem no campo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== PEDAGOGIA DA ALTERNÂNCIA ===== -->
+    <section id="pedagogia" class="secao secao-azul" aria-labelledby="pedagogia-h2">
+        <div class="container" style="position: relative; z-index: 1;">
+
+            <div class="fade-up">
+                <div class="rotulo"><i class="fas fa-book-open" aria-hidden="true"></i> Metodologia</div>
+                <h2 class="titulo-secao" id="pedagogia-h2">Pedagogia da Alternância</h2>
+                <p class="desc-secao">
+                    Uma proposta educativa que articula escola e comunidade, valorizando o saber do campo e integrando conhecimento técnico com a vida real dos estudantes e suas famílias.
+                </p>
+            </div>
+
+            <div class="grid-alternancia fade-up">
+                <div class="card-alternancia">
+                    <div class="icone-box" role="img" aria-label="Escola">🏫</div>
+                    <h3>Tempo escola</h3>
+                    <p>Os jovens vivem na escola em regime de semi-internato durante um período, aprendendo conteúdos técnicos e teóricos com monitores comprometidos com a educação do campo.</p>
+                </div>
+                <div class="card-alternancia">
+                    <div class="icone-box" role="img" aria-label="Comunidade">🏡</div>
+                    <h3>Tempo comunidade</h3>
+                    <p>No período em casa, o estudante aplica o conhecimento na propriedade familiar, realiza pesquisas e projetos práticos, fortalecendo o vínculo com a terra e a família.</p>
+                </div>
+                <div class="card-alternancia">
+                    <div class="icone-box" role="img" aria-label="Família">👨‍👩‍👧‍👦</div>
+                    <h3>Gestão familiar</h3>
+                    <p>As famílias participam ativamente da gestão da escola — um dos pilares da Pedagogia da Alternância que garante identidade, pertencimento e controle comunitário.</p>
+                </div>
+                <div class="card-alternancia">
+                    <div class="icone-box" role="img" aria-label="Monitor">📚</div>
+                    <h3>Monitor como mediador</h3>
+                    <p>O monitor é mais do que professor — é parceiro que acompanha a formação integral do jovem, visita as famílias e medeia o processo de aprendizagem entre escola e campo.</p>
+                </div>
+            </div>
+
+            <!-- Diagrama do ciclo -->
+            <div class="ciclo-wrap fade-up">
+                <div class="ciclo" aria-label="Ciclo da Pedagogia da Alternância: Escola, Estudante e Comunidade">
+                    <div class="ciclo-item">
+                        <span class="ciclo-emoji" role="img" aria-label="Escola">🏫</span>
+                        <div class="ciclo-nome">Escola</div>
+                        <div class="ciclo-sub">Aprendizagem teórica</div>
+                    </div>
+                    <div class="ciclo-seta" aria-hidden="true">⇄</div>
+                    <div class="ciclo-item">
+                        <span class="ciclo-emoji" role="img" aria-label="Estudante">👩‍🌾</span>
+                        <div class="ciclo-nome">Estudante</div>
+                        <div class="ciclo-sub">No centro do processo</div>
+                    </div>
+                    <div class="ciclo-seta" aria-hidden="true">⇄</div>
+                    <div class="ciclo-item">
+                        <span class="ciclo-emoji" role="img" aria-label="Comunidade e girassol">🌻</span>
+                        <div class="ciclo-nome">Comunidade</div>
+                        <div class="ciclo-sub">Prática e identidade</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onda de saída -->
+        <div class="onda-sep" aria-hidden="true">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,40 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#F5F7FA"/>
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- ===== CURSOS ===== -->
+    <section id="cursos" class="secao secao-cinza" aria-labelledby="cursos-h2">
+        <div class="container">
+
+            <div class="fade-up">
+                <div class="rotulo"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Formação</div>
+                <h2 class="titulo-secao" id="cursos-h2">Cursos oferecidos</h2>
+                <p class="desc-secao">
+                    Formação técnica integrada ao ensino médio, com metodologia própria de educação do campo e foco no desenvolvimento sustentável da agricultura familiar.
+                </p>
+            </div>
+
+            <div class="card-curso fade-up">
+                <div class="curso-info">
+                    <div class="curso-tag">
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
+                        Ensino Médio integrado ao Técnico
+                    </div>
+                    <h3>Técnico em Agropecuária integrado ao Ensino Médio</h3>
+                    <p>
+                        Curso de 4 anos que combina a formação do Ensino Médio com habilitação técnica em Agropecuária, usando a Pedagogia da Alternância. O estudante alterna períodos na escola e na propriedade familiar.
+                    </p>
+                    <p>
+                        Desenvolvido para jovens do campo que desejam se qualificar tecnicamente sem se afastar de suas raízes — formando gestores rurais autônomos, comprometidos com o desenvolvimento sustentável e a agricultura familiar.
+                    </p>
+                    <div class="curso-detalhes">
+                        <div class="detalhe">
+                            <div class="detalhe-icone" role="img" aria-label="Calendário">📅</div>
+                            <div class="detalhe-texto">
+                                <strong>Duração</strong>
+                                <span>4 anos</span>
+                            </div>
+                        </div>
+                        <div class="detalhe">
+                            <div class="detalhe-icone" role="img" aria-label="Modalidade">🏫</div>
+                            <div class="detalhe-texto">
+                                <strong>Modalidade</strong>
+                                <span>Semi-internato</span>
+                            </div>
+                        </div>
+                        <div class="detalhe">
+                            <div class="detalhe-icone" role="img" aria-label="Nível">🎓</div>
+                            <div class="detalhe-texto">
+                                <strong>Nível</strong>
+                                <span>Médio integrado</span>
+                            </div>
+                        </div>
+                        <div class="detalhe">
+                            <div class="detalhe-icone" role="img" aria-label="Regime">🌱</div>
+                            <div class="detalhe-texto">
+                                <strong>Regime</strong>
+                                <span>Alternância</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areas-grid" aria-label="Áreas do curso">
+                    <div class="area-chip">
+                        <span class="em" role="img" aria-label="Zootecnia">🐄</span>
+                        <span>Zootecnia e pecuária</span>
+                    </div>
+                    <div class="area-chip">
+                        <span class="em" role="img" aria-label="Cultivo">🌾</span>
+                        <span>Agricultura e cultivos</span>
+                    </div>
+                    <div class="area-chip">
+                        <span class="em" role="img" aria-label="Meio ambiente">🌳</span>
+                        <span>Gestão ambiental</span>
+                    </div>
+                    <div class="area-chip">
+                        <span class="em" role="img" aria-label="Administração rural">📊</span>
+                        <span>Administração rural</span>
+                    </div>
+                    <div class="area-chip">
+                        <span class="em" role="img" aria-label="Extensão rural">🤝</span>
+                        <span>Extensão e assistência técnica</span>
+                    </div>
+                    <div class="area-chip">
+                        <span class="em" role="img" aria-label="Sustentabilidade">♻️</span>
+                        <span>Produção sustentável</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abrangência -->
+            <div class="abrangencia fade-up">
+                <h3>Área de abrangência</h3>
+                <p>Atendemos estudantes de comunidades rurais de toda a região norte do Espírito Santo:</p>
+                <div class="municipios" role="list" aria-label="Municípios atendidos">
+                    <span class="municipio" role="listitem">Nova Venécia/ES</span>
+                    <span class="municipio" role="listitem">São Mateus/ES</span>
+                    <span class="municipio" role="listitem">Ecoporanga/ES</span>
+                    <span class="municipio" role="listitem">Vila Pavão/ES</span>
+                    <span class="municipio" role="listitem">Barra de São Francisco/ES</span>
+                    <span class="municipio" role="listitem">Conceição da Barra/ES</span>
+                    <span class="municipio" role="listitem">Água Doce do Norte/ES</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== HISTÓRIA ===== -->
+    <section id="historia" class="secao secao-branca" aria-labelledby="historia-h2">
+        <div class="container">
+
+            <div class="fade-up">
+                <div class="rotulo"><i class="fas fa-landmark" aria-hidden="true"></i> Nossa trajetória</div>
+                <h2 class="titulo-secao" id="historia-h2">
+                    Uma história de <span class="destaque">luta e identidade</span>
+                </h2>
+                <p class="desc-secao">
+                    Nascida da organização das famílias rurais de Chapadinha, a EFA é fruto da determinação coletiva de quem acredita que a educação do campo deve acontecer no campo — com a comunidade como protagonista.
+                </p>
+            </div>
+
+            <div class="timeline fade-up" aria-label="Linha do tempo da EFA Chapadinha">
+                <div class="evento">
+                    <div class="evento-dot" aria-hidden="true"></div>
+                    <div class="evento-ano">Décadas de 1960–70</div>
+                    <h3>O contexto que exigia mudança</h3>
+                    <p>O empobrecimento do meio rural, a migração de jovens para as cidades e o esfacelamento das famílias camponesas criaram a urgência por uma escola que valorizasse o campo e seus povos.</p>
+                </div>
+
+                <div class="evento">
+                    <div class="evento-dot" aria-hidden="true"></div>
+                    <div class="evento-ano">26 de abril de 1968</div>
+                    <h3>Fundação do MEPES</h3>
+                    <p>Fundado o Movimento de Educação Promocional do Espírito Santo (MEPES), pioneiro na adoção da Pedagogia da Alternância no Brasil, com influência das Escolas Famílias Agrícolas da Itália e a liderança do Pe. Humberto Pietrogrande.</p>
+                </div>
+
+                <div class="evento">
+                    <div class="evento-dot" aria-hidden="true"></div>
+                    <div class="evento-ano">28 de outubro de 1985</div>
+                    <h3>As famílias se organizam</h3>
+                    <p>Aproximadamente vinte líderes rurais se reúnem com representantes da prefeitura e do MEPES para dar os primeiros passos em direção à criação da Escola de Chapadinha.</p>
+                </div>
+
+                <div class="evento">
+                    <div class="evento-dot" aria-hidden="true"></div>
+                    <div class="evento-ano">18 de outubro de 1986</div>
+                    <h3>Pedra fundamental lançada</h3>
+                    <p>Com mutirões, doações de dias de serviço e mobilização comunitária, a Pedra Fundamental é lançada — marco do trabalho coletivo que ergueu a escola com as próprias mãos das famílias.</p>
+                </div>
+
+                <div class="evento">
+                    <div class="evento-dot" aria-hidden="true"></div>
+                    <div class="evento-ano">Abril de 1988</div>
+                    <h3>A escola abre suas portas</h3>
+                    <p>A EFA de Chapadinha começa a funcionar com 6 monitores, 1 zelador, 2 cozinheiras e um conselho administrativo com 22 representantes de comunidades da região.</p>
+                </div>
+
+                <div class="evento">
+                    <div class="evento-dot" aria-hidden="true"></div>
+                    <div class="evento-ano">2007–2009</div>
+                    <h3>Expansão para o Ensino Médio técnico</h3>
+                    <p>Após ampla mobilização comunitária e seminários regionais sobre Educação do Campo, a EFA implanta o Curso Técnico em Agropecuária integrado ao Ensino Médio — atendendo à crescente demanda das famílias rurais da região norte capixaba.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== DEPOIMENTOS ===== -->
+    <section id="depoimentos" class="secao secao-cinza" aria-labelledby="depoimentos-h2">
+        <div class="container">
+
+            <div class="dep-intro fade-up">
+                <div class="rotulo"><i class="fas fa-quote-left" aria-hidden="true"></i> Vozes da EFA</div>
+                <h2 class="titulo-secao" id="depoimentos-h2">
+                    O que dizem nossos <span class="destaque">ex-estudantes</span>
+                </h2>
+                <p class="desc-secao">
+                    Vidas transformadas pela educação do campo. Confira os relatos de quem viveu a experiência da Pedagogia da Alternância na EFA Chapadinha.
+                </p>
+            </div>
+
+            <div class="grid-videos fade-up">
+                <div class="card-video">
+                    <div class="video-thumb" role="img" aria-label="Depoimento em vídeo de ex-estudante">
+                        <div class="play-btn" aria-hidden="true">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Depoimento</div>
+                        <h3>Relato de ex-estudante</h3>
+                        <p>A formação na EFA e como ela transformou minha trajetória no campo.</p>
+                    </div>
+                </div>
+
+                <div class="card-video">
+                    <div class="video-thumb" role="img" aria-label="Depoimento em vídeo de ex-estudante">
+                        <div class="play-btn" aria-hidden="true">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Depoimento</div>
+                        <h3>Relato de ex-estudante</h3>
+                        <p>Da EFA para a gestão da propriedade familiar — um caminho de protagonismo.</p>
+                    </div>
+                </div>
+
+                <div class="card-video">
+                    <div class="video-thumb" role="img" aria-label="Depoimento em vídeo de ex-estudante">
+                        <div class="play-btn" aria-hidden="true">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Depoimento</div>
+                        <h3>Relato de ex-estudante</h3>
+                        <p>Como a Pedagogia da Alternância me ensinou a valorizar minhas raízes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="dep-ig-link fade-up">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                Acompanhe mais conteúdos em nosso
+                <a href="https://www.instagram.com/efadechapadinha?igsh=ZW5iM2R6dXdjMG9j" target="_blank" rel="noopener noreferrer">
+                    @efadechapadinha
+                </a>
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ===== CONTATO ===== -->
+    <section id="contato" class="secao secao-azul" aria-labelledby="contato-h2">
+        <div class="container" style="position: relative; z-index: 1;">
+
+            <div class="fade-up">
+                <div class="rotulo"><i class="fas fa-envelope" aria-hidden="true"></i> Fale conosco</div>
+                <h2 class="titulo-secao" id="contato-h2">Entre em contato</h2>
+                <p class="desc-secao">
+                    Tem interesse em matricular seu(sua) filho(a) ou quer saber mais sobre a EFA de Chapadinha? Fale conosco — teremos prazer em atender!
+                </p>
+            </div>
+
+            <div class="contato-grid">
+                <div class="cards-contato fade-up">
+                    <div class="card-contato">
+                        <div class="contato-icone" aria-hidden="true">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contato-dados">
+                            <strong>Endereço</strong>
+                            <span>Estrada BR 342, s/nº, Km 107,5<br>Chapadinha – Nova Venécia/ES<br>CEP 29.830-000</span>
+                        </div>
+                    </div>
+
+                    <div class="card-contato">
+                        <div class="contato-icone" aria-hidden="true">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contato-dados">
+                            <strong>E-mail</strong>
+                            <a href="mailto:nielsena01@hotmail.com">nielsena01@hotmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="card-contato">
+                        <div class="contato-icone" aria-hidden="true">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contato-dados">
+                            <strong>Horário de atendimento</strong>
+                            <span>Segunda a sexta-feira<br>7h00 às 16h40</span>
+                        </div>
+                    </div>
+
+                    <div class="card-contato">
+                        <div class="contato-icone" aria-hidden="true">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contato-dados">
+                            <strong>Instagram</strong>
+                            <a href="https://www.instagram.com/efadechapadinha?igsh=ZW5iM2R6dXdjMG9j" target="_blank" rel="noopener noreferrer">
+                                @efadechapadinha
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-wrap fade-up">
+                    <h3>Envie uma mensagem</h3>
+                    <p>Responderemos em breve pelo e-mail informado.</p>
+
+                    <form action="mailto:nielsena01@hotmail.com" method="post" enctype="text/plain" aria-label="Formulário de contato">
+                        <div class="campos-duplos">
+                            <div class="campo">
+                                <label for="nome">Nome completo</label>
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome" required autocomplete="name">
+                            </div>
+                            <div class="campo">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel">
+                            </div>
+                        </div>
+                        <div class="campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+                        </div>
+                        <div class="campo">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" name="assunto" placeholder="Ex: Informações sobre matrícula">
+                        </div>
+                        <div class="campo">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            Enviar mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onda de saída -->
+        <div class="onda-sep" aria-hidden="true">
+            <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" fill="#080f22"/>
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-marca">
+                    <a href="#hero" class="logo" aria-label="Início">
+                        <div class="logo-badge" aria-hidden="true">EFA</div>
+                    </a>
+                    <strong>Escola Família Agrícola de Chapadinha</strong>
+                    <p>
+                        Formando jovens do campo com identidade, técnica e propósito desde 1988. Pedagogia da Alternância a serviço da agricultura familiar e do desenvolvimento sustentável.
+                    </p>
+                    <div class="sociais">
+                        <a href="https://www.instagram.com/efadechapadinha?igsh=ZW5iM2R6dXdjMG9j" target="_blank" rel="noopener noreferrer" class="social" aria-label="Acesse nosso Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre a EFA</a></li>
+                        <li><a href="#pedagogia">Pedagogia da Alternância</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#historia">Nossa história</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="mailto:nielsena01@hotmail.com">nielsena01@hotmail.com</a></li>
+                        <li><a href="#contato">Nova Venécia/ES</a></li>
+                        <li><a href="#contato">Seg–Sex · 7h às 16h40</a></li>
+                        <li><a href="https://www.instagram.com/efadechapadinha" target="_blank" rel="noopener noreferrer">@efadechapadinha</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-base">
+                <p>© 2025 Escola Família Agrícola de Chapadinha · CNPJ 27.097.229/0017-00 · Nova Venécia/ES</p>
+                <span>Todos os direitos reservados</span>
+            </div>
+        </div>
+
+        <!-- Rodapé MonteSite - Atualização Automática -->
+        <div id="montesite-footer-badge"></div>
+        <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
+    </footer>
+
+
+    <!-- ===== BOTÃO WHATSAPP FLUTUANTE ===== -->
+    <!-- ATENÇÃO: Substituir XXXXXXXXXXX pelo número de WhatsApp com DDD e DDI (ex: 5527999999999) -->
+    <a href="https://wa.me/55XXXXXXXXXXX"
+       class="wp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+
+    <script>
+        // ===== MENU MOBILE =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu   = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            const aberto = navMenu.classList.toggle('aberto');
+            hamburger.classList.toggle('ativo');
+            hamburger.setAttribute('aria-expanded', aberto);
+            navMenu.setAttribute('aria-hidden', !aberto);
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('aberto');
+                hamburger.classList.remove('ativo');
+                hamburger.setAttribute('aria-expanded', 'false');
+                navMenu.setAttribute('aria-hidden', 'true');
+            });
+        });
+
+        // ===== ANIMAÇÕES DE ENTRADA =====
+        const fadeEls = document.querySelectorAll('.fade-up');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visivel'), i * 90);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+
+        fadeEls.forEach(el => observer.observe(el));
+
+        // ===== HEADER — efeito ao rolar =====
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 40
+                ? '0 2px 32px rgba(0,0,0,0.28)'
+                : '0 2px 24px rgba(0,0,0,0.18)';
+        }, { passive: true });
+
+        // ===== LINK ATIVO NA NAV =====
+        const secoes   = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav.desktop-nav a');
+
+        window.addEventListener('scroll', () => {
+            let atual = '';
+            secoes.forEach(s => {
+                if (s.getBoundingClientRect().top < 110) atual = s.id;
+            });
+            navLinks.forEach(link => {
+                link.style.color = (link.getAttribute('href') === `#${atual}`) ? 'var(--amarelo)' : '';
+            });
+        }, { passive: true });
+    </script>
+</body>
+</html>
