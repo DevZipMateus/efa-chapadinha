@@ -238,13 +238,42 @@
         #hero {
             min-height: 100vh;
             padding-top: var(--header-h);
-            background:
-                linear-gradient(155deg, rgba(9,24,58,0.87) 0%, rgba(28,58,114,0.82) 50%, rgba(22,61,26,0.87) 100%),
-                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80&auto=format&fit=crop') center / cover no-repeat;
-            background-attachment: fixed, fixed;
+            background: linear-gradient(155deg, rgba(9,24,58,0.87) 0%, rgba(28,58,114,0.82) 50%, rgba(22,61,26,0.87) 100%);
             position: relative;
             display: flex;
             align-items: center;
+            overflow: hidden;
+        }
+
+        /* Ken Burns — imagem de fundo animada */
+        .hero-bg {
+            position: absolute;
+            inset: -5%;
+            background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80&auto=format&fit=crop') center / cover no-repeat;
+            animation: kenBurns 24s ease-in-out infinite alternate;
+            z-index: 0;
+            will-change: transform;
+        }
+
+        @keyframes kenBurns {
+            0%   { transform: scale(1)    translate(0%,   0%); }
+            100% { transform: scale(1.12) translate(-3%,  2%); }
+        }
+
+        /* Cursor piscante do typewriter */
+        .tw-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 0.9em;
+            background: rgba(255, 255, 255, 0.75);
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: piscaCursor 0.65s step-end infinite;
+        }
+
+        @keyframes piscaCursor {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
         }
 
         #hero::before {
@@ -1468,6 +1497,7 @@
 
     <!-- ===== HERO ===== -->
     <section id="hero" aria-labelledby="hero-h1">
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-container">
 
             <!-- Conteúdo principal -->
@@ -1482,9 +1512,7 @@
                     <em>de Chapadinha</em>
                 </h1>
 
-                <h2>
-                    Desde 1988, entre a escola e a comunidade, fortalecendo o elo entre estudante, família e monitor na construção de um ensino contextualizado.
-                </h2>
+                <h2 id="hero-typewriter" data-typewriter="Desde 1988, entre a escola e a comunidade, fortalecendo o elo entre estudante, família e monitor na construção de um ensino contextualizado." aria-label="Desde 1988, entre a escola e a comunidade, fortalecendo o elo entre estudante, família e monitor na construção de um ensino contextualizado."></h2>
 
                 <div class="hero-btns">
                     <a href="#cursos" class="btn-amarelo">
@@ -1507,15 +1535,15 @@
                     </p>
                     <div class="hero-stats" role="list">
                         <div role="listitem">
-                            <span class="stat-num">+35</span>
+                            <span class="stat-num" data-prefix="+" data-val="35" data-suffix="">+35</span>
                             <span class="stat-leg">Anos de história</span>
                         </div>
                         <div role="listitem">
-                            <span class="stat-num">7+</span>
+                            <span class="stat-num" data-prefix="" data-val="7" data-suffix="+">7+</span>
                             <span class="stat-leg">Municípios atendidos</span>
                         </div>
                         <div role="listitem">
-                            <span class="stat-num">4</span>
+                            <span class="stat-num" data-prefix="" data-val="4" data-suffix="">4</span>
                             <span class="stat-leg">Anos de curso técnico</span>
                         </div>
                     </div>
@@ -2104,6 +2132,57 @@
                 link.style.color = (link.getAttribute('href') === `#${atual}`) ? 'var(--amarelo)' : '';
             });
         }, { passive: true });
+
+        // ===== TYPEWRITER — slogan do Hero =====
+        const twEl = document.getElementById('hero-typewriter');
+        if (twEl) {
+            const texto = twEl.getAttribute('data-typewriter');
+            twEl.textContent = '';
+            const cursor = document.createElement('span');
+            cursor.className = 'tw-cursor';
+            cursor.setAttribute('aria-hidden', 'true');
+            twEl.appendChild(cursor);
+
+            let i = 0;
+            const digitar = () => {
+                if (i < texto.length) {
+                    twEl.insertBefore(document.createTextNode(texto[i]), cursor);
+                    i++;
+                    setTimeout(digitar, i < 5 ? 80 : 32);
+                } else {
+                    setTimeout(() => cursor.remove(), 1400);
+                }
+            };
+            setTimeout(digitar, 900);
+        }
+
+        // ===== CONTADOR ANIMADO — stats do Hero =====
+        function animarContador(el) {
+            const alvo    = parseInt(el.getAttribute('data-val'));
+            const prefixo = el.getAttribute('data-prefix') || '';
+            const sufixo  = el.getAttribute('data-suffix') || '';
+            const duracao = 1800;
+            const inicio  = performance.now();
+
+            const passo = (agora) => {
+                const progresso = Math.min((agora - inicio) / duracao, 1);
+                const ease      = 1 - Math.pow(1 - progresso, 3);
+                el.textContent  = prefixo + Math.round(ease * alvo) + sufixo;
+                if (progresso < 1) requestAnimationFrame(passo);
+            };
+            requestAnimationFrame(passo);
+        }
+
+        const statsEl = document.querySelector('.hero-stats');
+        if (statsEl) {
+            const statsObs = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    document.querySelectorAll('.stat-num').forEach(animarContador);
+                    statsObs.disconnect();
+                }
+            }, { threshold: 0.6 });
+            statsObs.observe(statsEl);
+        }
     </script>
 </body>
 </html>
