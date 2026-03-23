@@ -1383,17 +1383,37 @@
         #loader {
             position: fixed;
             inset: 0;
-            background: linear-gradient(155deg, #09183a 0%, #1C3A72 60%, #163d1a 100%);
+            background: #09183a;
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: opacity 0.75s ease;
+            overflow: hidden;
         }
 
         #loader.saindo { opacity: 0; pointer-events: none; }
 
+        .loader-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+
+        .loader-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 20, 50, 0.65);
+            z-index: 1;
+        }
+
         .loader-inner {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1608,6 +1628,10 @@
 
     <!-- ===== LOADER ===== -->
     <div id="loader" aria-hidden="true">
+        <video class="loader-video" autoplay muted loop playsinline>
+            <source src="videos/Drone_Sobrevoando_Campo.mp4" type="video/mp4">
+        </video>
+        <div class="loader-overlay"></div>
         <div class="loader-inner">
             <div class="loader-badge">EFA</div>
             <div class="loader-nome">Escola Família Agrícola de Chapadinha</div>
