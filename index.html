@@ -611,9 +611,10 @@
         .sobre-texto p:last-child { margin-bottom: 0; }
 
         .cards-missao {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-content: start;
         }
 
         .card-missao {
@@ -1656,6 +1657,7 @@
 
             .card-curso       { padding: 28px; }
             .grid-videos      { grid-template-columns: 1fr; }
+            .cards-missao     { grid-template-columns: 1fr; }
             .footer-grid      { grid-template-columns: 1fr; gap: 32px; }
             .footer-base      { flex-direction: column; text-align: center; }
         }
