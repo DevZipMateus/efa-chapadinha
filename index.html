@@ -1032,8 +1032,8 @@
         }
 
         .historia-bg-2 {
-            clip-path: inset(100% 0 0 0);
-            will-change: clip-path;
+            opacity: 0;
+            will-change: opacity;
         }
 
         .historia-bg-overlay {
@@ -2468,19 +2468,20 @@
         // ===== EFEITOS VISUAIS — iniciam somente após o loader =====
         function iniciarEfeitos() {
 
-            // Scroll-reveal de imagem na seção História
+            // Crossfade de fundo na seção História baseado no scroll
             const historiaSection = document.getElementById('historia');
             const historiaBg2 = document.querySelector('.historia-bg-2');
             if (historiaSection && historiaBg2) {
-                const atualizarReveal = () => {
-                    const rect = historiaSection.getBoundingClientRect();
-                    const progresso = Math.max(0, Math.min(1,
-                        (window.innerHeight - rect.top) / (historiaSection.offsetHeight + window.innerHeight)
+                const atualizarFundo = () => {
+                    const sectionTop    = historiaSection.offsetTop;
+                    const sectionHeight = historiaSection.offsetHeight;
+                    const progresso     = Math.max(0, Math.min(1,
+                        (window.scrollY - sectionTop) / (sectionHeight - window.innerHeight)
                     ));
-                    historiaBg2.style.clipPath = `inset(${Math.round((1 - progresso) * 100)}% 0 0 0)`;
+                    historiaBg2.style.opacity = progresso;
                 };
-                window.addEventListener('scroll', atualizarReveal, { passive: true });
-                atualizarReveal();
+                window.addEventListener('scroll', atualizarFundo, { passive: true });
+                atualizarFundo();
             }
 
             // Carrossel do Hero
