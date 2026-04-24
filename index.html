@@ -1013,38 +1013,43 @@
         }
 
         /* ===== HISTÓRIA — LINHA DO TEMPO ===== */
-        .historia-grid {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 60px;
-            align-items: start;
-            margin-top: 60px;
+        /* Background scroll-reveal da seção história */
+        #historia {
+            position: relative;
         }
 
-        .historia-fotos {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: sticky;
-            top: 100px;
+        .historia-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
         }
 
-        .historia-fotos img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--sombra);
-            object-fit: cover;
-            aspect-ratio: 4/3;
-            transition: var(--transicao);
+        .historia-bg-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
         }
 
-        .historia-fotos img:hover {
-            transform: scale(1.02);
-            box-shadow: var(--sombra-hover);
+        .historia-bg-2 {
+            clip-path: inset(100% 0 0 0);
+            will-change: clip-path;
+        }
+
+        .historia-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.84);
+        }
+
+        #historia .container {
+            position: relative;
+            z-index: 1;
         }
 
         .timeline {
             position: relative;
+            margin-top: 60px;
             padding-left: 52px;
         }
 
@@ -1652,9 +1657,6 @@
         /* ── Tablet grande (até 1023px) ─────────────── */
         @media (max-width: 1023px) {
             .sobre-grid       { grid-template-columns: 1fr; gap: 40px; }
-            .historia-grid    { grid-template-columns: 1fr; }
-            .historia-fotos   { position: static; flex-direction: row; }
-            .historia-fotos img { flex: 1; }
             .grid-alternancia { grid-template-columns: 1fr; }
             .card-curso       { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
             .contato-grid     { grid-template-columns: 1fr; gap: 40px; }
@@ -2121,6 +2123,11 @@
 
     <!-- ===== HISTÓRIA ===== -->
     <section id="historia" class="secao secao-branca" aria-labelledby="historia-h2">
+        <div class="historia-bg" aria-hidden="true">
+            <div class="historia-bg-layer historia-bg-1" style="background-image: url('images/escola-foto-2.jpeg')"></div>
+            <div class="historia-bg-layer historia-bg-2" style="background-image: url('images/escola-foto-1.jpeg')"></div>
+            <div class="historia-bg-overlay"></div>
+        </div>
         <div class="container">
 
             <div class="fade-up">
@@ -2133,8 +2140,7 @@
                 </p>
             </div>
 
-            <div class="historia-grid fade-up">
-            <div class="timeline" aria-label="Linha do tempo da EFA Chapadinha">
+            <div class="timeline fade-up" aria-label="Linha do tempo da EFA Chapadinha">
                 <div class="evento">
                     <div class="evento-dot" aria-hidden="true"></div>
                     <div class="evento-ano">Décadas de 1960–70</div>
@@ -2176,11 +2182,6 @@
                     <h3>Expansão para o Ensino Médio técnico</h3>
                     <p>Após ampla mobilização comunitária e seminários regionais sobre Educação do Campo, a EFA implanta o Curso Técnico em Agropecuária integrado ao Ensino Médio — atendendo à crescente demanda das famílias rurais da região norte capixaba.</p>
                 </div>
-            </div>
-
-            <div class="historia-fotos">
-                <img src="images/escola-foto-1.jpeg" alt="Escola Família Agrícola de Chapadinha" loading="lazy">
-                <img src="images/escola-foto-2.jpeg" alt="Escola Família Agrícola de Chapadinha" loading="lazy">
             </div>
 
             </div>
@@ -2466,6 +2467,21 @@
 
         // ===== EFEITOS VISUAIS — iniciam somente após o loader =====
         function iniciarEfeitos() {
+
+            // Scroll-reveal de imagem na seção História
+            const historiaSection = document.getElementById('historia');
+            const historiaBg2 = document.querySelector('.historia-bg-2');
+            if (historiaSection && historiaBg2) {
+                const atualizarReveal = () => {
+                    const rect = historiaSection.getBoundingClientRect();
+                    const progresso = Math.max(0, Math.min(1,
+                        (window.innerHeight - rect.top) / (historiaSection.offsetHeight + window.innerHeight)
+                    ));
+                    historiaBg2.style.clipPath = `inset(${Math.round((1 - progresso) * 100)}% 0 0 0)`;
+                };
+                window.addEventListener('scroll', atualizarReveal, { passive: true });
+                atualizarReveal();
+            }
 
             // Carrossel do Hero
             const slides = document.querySelectorAll('.hero-slide');
