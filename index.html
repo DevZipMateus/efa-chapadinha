@@ -247,14 +247,26 @@
             overflow: hidden;
         }
 
-        /* Ken Burns — imagem de fundo animada */
-        .hero-bg {
+        /* Carrossel do hero */
+        .hero-carousel {
             position: absolute;
             inset: -5%;
-            background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80&auto=format&fit=crop') center / cover no-repeat;
-            animation: kenBurns 24s ease-in-out infinite alternate;
             z-index: 0;
-            will-change: transform;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            animation: kenBurns 6s ease-in-out forwards;
         }
 
         @keyframes kenBurns {
@@ -1747,7 +1759,18 @@
 
     <!-- ===== HERO ===== -->
     <section id="hero" aria-labelledby="hero-h1">
-        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-carousel" aria-hidden="true">
+            <div class="hero-slide active" style="background-image: url('images/imagens%20hero/Cliente_1_15_Formao%20coletiva.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_18_Aula%20%20prtica%20de%20teodolito%20-%20to.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_21_Mutiro%20plantio%20no%20jardim.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_23_Assembleia%20de%20inicio%20de%20ano%20-.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_24_Assembleia%20de%20inicio%20de%20ano%20-.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_62_visita%20de%20estudo.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_63_visita%20de%20estudo.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_72_subida%20na%20pedra%20e%20aprofundamen.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_74_Formao%20sobre%20respeito%20a%20divers.jpeg')"></div>
+            <div class="hero-slide" style="background-image: url('images/imagens%20hero/Cliente_1_81_formao%20continuada%20monitores%20se.jpeg')"></div>
+        </div>
         <div class="hero-container">
 
             <!-- Conteúdo principal centralizado -->
@@ -2360,6 +2383,21 @@
 
         // ===== EFEITOS VISUAIS — iniciam somente após o loader =====
         function iniciarEfeitos() {
+
+            // Carrossel do Hero
+            const slides = document.querySelectorAll('.hero-slide');
+            if (slides.length > 1) {
+                let slideAtual = 0;
+                setInterval(() => {
+                    slides[slideAtual].classList.remove('active');
+                    slideAtual = (slideAtual + 1) % slides.length;
+                    const novo = slides[slideAtual];
+                    novo.style.animation = 'none';
+                    void novo.offsetWidth;
+                    novo.style.animation = '';
+                    novo.classList.add('active');
+                }, 3000);
+            }
 
             // Fade-up ao rolar
             const fadeEls = document.querySelectorAll('.fade-up');
