@@ -1013,9 +1013,38 @@
         }
 
         /* ===== HISTÓRIA — LINHA DO TEMPO ===== */
+        .historia-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 60px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .historia-fotos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .historia-fotos img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--sombra);
+            object-fit: cover;
+            aspect-ratio: 4/3;
+            transition: var(--transicao);
+        }
+
+        .historia-fotos img:hover {
+            transform: scale(1.02);
+            box-shadow: var(--sombra-hover);
+        }
+
         .timeline {
             position: relative;
-            margin-top: 60px;
             padding-left: 52px;
         }
 
@@ -1623,6 +1652,9 @@
         /* ── Tablet grande (até 1023px) ─────────────── */
         @media (max-width: 1023px) {
             .sobre-grid       { grid-template-columns: 1fr; gap: 40px; }
+            .historia-grid    { grid-template-columns: 1fr; }
+            .historia-fotos   { position: static; flex-direction: row; }
+            .historia-fotos img { flex: 1; }
             .grid-alternancia { grid-template-columns: 1fr; }
             .card-curso       { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
             .contato-grid     { grid-template-columns: 1fr; gap: 40px; }
@@ -2101,7 +2133,8 @@
                 </p>
             </div>
 
-            <div class="timeline fade-up" aria-label="Linha do tempo da EFA Chapadinha">
+            <div class="historia-grid fade-up">
+            <div class="timeline" aria-label="Linha do tempo da EFA Chapadinha">
                 <div class="evento">
                     <div class="evento-dot" aria-hidden="true"></div>
                     <div class="evento-ano">Décadas de 1960–70</div>
@@ -2143,6 +2176,13 @@
                     <h3>Expansão para o Ensino Médio técnico</h3>
                     <p>Após ampla mobilização comunitária e seminários regionais sobre Educação do Campo, a EFA implanta o Curso Técnico em Agropecuária integrado ao Ensino Médio — atendendo à crescente demanda das famílias rurais da região norte capixaba.</p>
                 </div>
+            </div>
+
+            <div class="historia-fotos">
+                <img src="images/escola-foto-1.jpeg" alt="Escola Família Agrícola de Chapadinha" loading="lazy">
+                <img src="images/escola-foto-2.jpeg" alt="Escola Família Agrícola de Chapadinha" loading="lazy">
+            </div>
+
             </div>
         </div>
     </section>
