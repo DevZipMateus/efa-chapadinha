@@ -4,622 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transparência – EFA Chapadinha</title>
-    <meta name="description" content="Informações de transparência referentes às parcerias firmadas com prefeituras municipais pela Escola Família Agrícola de Chapadinha.">
-    <meta name="robots" content="index, follow">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --azul-escuro:  #1C3A72;
-            --azul-medio:   #2554A0;
-            --azul-claro:   #4A7EC7;
-            --azul-bg:      #EEF4FB;
-            --amarelo:      #F9C413;
-            --amarelo-dark: #D4A000;
-            --verde:        #2E7D32;
-            --branco:       #FFFFFF;
-            --cinza-claro:  #F5F7FA;
-            --cinza-borda:  #E2E8F0;
-            --texto-escuro: #1A2540;
-            --texto-medio:  #4A5568;
-            --header-h:     80px;
-            --radius:       14px;
-            --sombra:       0 4px 24px rgba(28,58,114,0.10);
-            --transicao:    all 0.3s ease;
-        }
-
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--texto-escuro);
-            background: var(--cinza-claro);
-            overflow-x: hidden;
-            line-height: 1.65;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            height: var(--header-h);
-            background: rgba(28,58,114,0.97);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 2px 24px rgba(0,0,0,0.18);
-        }
-
-        .header-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 28px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
-
-        .logo-badge {
-            width: 48px; height: 48px;
-            background: var(--amarelo);
-            border-radius: 11px;
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900; font-size: 17px;
-            color: var(--azul-escuro);
-            flex-shrink: 0;
-        }
-
-        .logo-texto strong {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700; font-size: 14px;
-            color: var(--branco); line-height: 1.25;
-        }
-
-        .logo-texto span {
-            font-size: 11.5px;
-            color: rgba(249,196,19,0.85);
-            font-weight: 500;
-        }
-
-        nav.desktop-nav {
-            display: flex; align-items: center; gap: 4px;
-        }
-
-        nav.desktop-nav a {
-            color: rgba(255,255,255,0.82);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px; font-weight: 500;
-            padding: 8px 14px; border-radius: 8px;
-            transition: var(--transicao);
-        }
-
-        nav.desktop-nav a:hover,
-        nav.desktop-nav a.ativo { color: var(--amarelo); }
-
-        nav.desktop-nav .nav-cta {
-            background: var(--amarelo);
-            color: var(--azul-escuro);
-            padding: 9px 20px;
-            border-radius: 10px;
-            font-weight: 700;
-            margin-left: 8px;
-        }
-
-        nav.desktop-nav .nav-cta:hover { background: var(--amarelo-dark); color: var(--azul-escuro); }
-
-        /* Hamburger */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 24px; height: 2.5px;
-            background: var(--branco);
-            border-radius: 2px;
-            transition: var(--transicao);
-        }
-
-        /* Nav mobile */
-        #navMenu {
-            display: none;
-            position: fixed;
-            top: var(--header-h); left: 0; right: 0;
-            background: var(--azul-escuro);
-            z-index: 999;
-            flex-direction: column;
-            padding: 16px 0 24px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-        }
-
-        #navMenu.aberto { display: flex; }
-
-        #navMenu a {
-            color: rgba(255,255,255,0.88);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px; font-weight: 500;
-            padding: 14px 28px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            transition: var(--transicao);
-        }
-
-        #navMenu a:hover { color: var(--amarelo); background: rgba(255,255,255,0.05); }
-
-        /* ===== PÁGINA ===== */
-        .pagina-topo {
-            padding-top: var(--header-h);
-            background: var(--azul-escuro);
-            padding-bottom: 60px;
-            text-align: center;
-        }
-
-        .pagina-topo-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 60px 28px 0;
-        }
-
-        .pagina-topo .rotulo {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(249,196,19,0.15);
-            border: 1px solid rgba(249,196,19,0.3);
-            border-radius: 50px;
-            padding: 7px 18px;
-            font-size: 12.5px;
-            font-weight: 600;
-            color: var(--amarelo);
-            margin-bottom: 22px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .pagina-topo h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(26px, 4vw, 42px);
-            font-weight: 800;
-            color: var(--branco);
-            line-height: 1.25;
-            margin-bottom: 18px;
-        }
-
-        .pagina-topo p {
-            font-size: 16px;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.8;
-        }
-
-        /* ===== CONTEÚDO ===== */
-        .pagina-corpo {
+            font-family: Arial, sans-serif;
             max-width: 900px;
             margin: 0 auto;
-            padding: 60px 28px 80px;
+            padding: 32px 24px 60px;
+            color: #1A2540;
+            line-height: 1.7;
         }
-
-        /* Onda separadora */
-        .onda-topo {
-            display: block;
-            width: 100%;
-            line-height: 0;
-            background: var(--azul-escuro);
-        }
-
-        .onda-topo svg { display: block; }
-
-        /* Card de termo */
-        .termo-card {
-            background: var(--branco);
-            border-radius: var(--radius);
-            box-shadow: var(--sombra);
-            padding: 40px 44px;
+        .voltar {
+            display: inline-block;
             margin-bottom: 32px;
-            border-top: 4px solid var(--amarelo);
-        }
-
-        .termo-card h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--azul-escuro);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .termo-card h2 i {
-            color: var(--amarelo);
-            font-size: 18px;
-        }
-
-        .termo-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .termo-info-item {
-            background: var(--cinza-claro);
-            border-radius: 10px;
-            padding: 14px 18px;
-            border-left: 3px solid var(--azul-claro);
-        }
-
-        .termo-info-item strong {
-            display: block;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--azul-medio);
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .termo-info-item span {
-            font-size: 15px;
-            color: var(--texto-escuro);
-            font-weight: 600;
-        }
-
-        .termo-objeto {
-            background: var(--azul-bg);
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin-bottom: 28px;
-            font-size: 14.5px;
-            color: var(--texto-medio);
-            line-height: 1.75;
-        }
-
-        .termo-objeto strong {
-            color: var(--azul-escuro);
-            font-weight: 700;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .termo-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--texto-escuro);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .termo-card h3 i { color: var(--azul-claro); }
-
-        .docs-lista {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .docs-lista li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            color: var(--texto-medio);
-            background: var(--cinza-claro);
-            border-radius: 8px;
-            padding: 10px 14px;
-        }
-
-        .docs-lista li::before {
-            content: '';
-            width: 7px; height: 7px;
-            background: var(--amarelo);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        /* Card OSC */
-        .osc-card {
-            background: var(--azul-escuro);
-            border-radius: var(--radius);
-            padding: 36px 44px;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 32px;
-        }
-
-        .osc-card h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--amarelo);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .osc-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .osc-item strong {
-            display: block;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: rgba(249,196,19,0.75);
-            margin-bottom: 4px;
-        }
-
-        .osc-item span, .osc-item a {
-            font-size: 14.5px;
-            color: rgba(255,255,255,0.9);
+            color: #1C3A72;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
         }
-
-        .osc-item a:hover { color: var(--amarelo); }
-
-        /* Aviso edição */
-        .aviso-edicao {
-            background: #FFF9E6;
-            border: 1px solid var(--amarelo);
-            border-radius: 10px;
-            padding: 16px 20px;
-            font-size: 13px;
-            color: #7A5800;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .aviso-edicao i { margin-top: 2px; flex-shrink: 0; }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: #080f22;
-            color: rgba(255,255,255,0.55);
-            padding: 28px 28px;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
-        footer a:hover { color: var(--amarelo); }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1023px) {
-            nav.desktop-nav { display: none; }
-            .hamburger { display: flex; }
-            .docs-lista { grid-template-columns: 1fr; }
-            .osc-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 600px) {
-            .termo-card, .osc-card { padding: 28px 22px; }
-            .pagina-corpo { padding: 40px 18px 60px; }
-            .termo-info-grid { grid-template-columns: 1fr; }
-        }
+        .voltar:hover { text-decoration: underline; }
+        h1 { font-size: 24px; margin-bottom: 16px; color: #1C3A72; }
+        h2 { font-size: 18px; margin-top: 36px; margin-bottom: 10px; color: #1C3A72; }
+        h3 { font-size: 15px; margin-top: 20px; margin-bottom: 8px; }
+        p  { margin-bottom: 10px; }
+        ul { padding-left: 22px; margin-bottom: 16px; }
+        li { margin-bottom: 5px; }
+        hr { border: none; border-top: 1px solid #E2E8F0; margin: 32px 0; }
+        strong { color: #1A2540; }
     </style>
 </head>
 <body>
 
-    <!-- ===== HEADER ===== -->
-    <header id="topo">
-        <div class="header-inner">
-            <a href="index.html" class="logo" aria-label="EFA Chapadinha — Início">
-                <div class="logo-badge" aria-hidden="true">EFA</div>
-                <div class="logo-texto">
-                    <strong>EFA Chapadinha</strong>
-                    <span>Educação do Campo · Nova Venécia/ES</span>
-                </div>
-            </a>
+    <a class="voltar" href="../">← Voltar ao site</a>
 
-            <nav class="desktop-nav" aria-label="Menu principal">
-                <a href="index.html#sobre">Sobre</a>
-                <a href="index.html#pedagogia">Pedagogia</a>
-                <a href="index.html#cursos">Cursos</a>
-                <a href="index.html#historia">História</a>
-                <a href="index.html#depoimentos">Depoimentos</a>
-                <a href="index.html#contato" class="nav-cta">Contato</a>
-            </nav>
+    <section id="transparencia">
+        <h1>Transparência – Parcerias com a Administração Pública</h1>
 
-            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
+        <p>
+            Em cumprimento à Lei Federal nº 13.019/2014 (Marco Regulatório das Organizações da Sociedade Civil – MROSC)
+            e às orientações dos Tribunais de Contas, a Escola Família Agrícola de Chapadinha disponibiliza nesta página
+            todas as informações referentes às parcerias firmadas com prefeituras municipais, garantindo transparência,
+            controle social e acesso público aos documentos.
+        </p>
 
-    <nav id="navMenu" aria-label="Menu mobile" aria-hidden="true">
-        <a href="index.html#sobre">Sobre a EFA</a>
-        <a href="index.html#pedagogia">Pedagogia da Alternância</a>
-        <a href="index.html#cursos">Cursos</a>
-        <a href="index.html#historia">Nossa história</a>
-        <a href="index.html#depoimentos">Depoimentos</a>
-        <a href="index.html#contato">Contato</a>
-    </nav>
-
-    <!-- ===== TOPO DA PÁGINA ===== -->
-    <div class="pagina-topo">
-        <div class="pagina-topo-inner">
-            <div class="rotulo">
-                <i class="fas fa-file-contract" aria-hidden="true"></i>
-                Acesso à informação
-            </div>
-            <h1>Transparência – Parcerias com a Administração Pública</h1>
-            <p>
-                Em cumprimento à Lei Federal nº 13.019/2014 (Marco Regulatório das Organizações da Sociedade Civil – MROSC)
-                e às orientações dos Tribunais de Contas, a Escola Família Agrícola de Chapadinha disponibiliza nesta página
-                todas as informações referentes às parcerias firmadas com prefeituras municipais, garantindo transparência,
-                controle social e acesso público aos documentos.
-            </p>
-        </div>
-    </div>
-
-    <div class="onda-topo" aria-hidden="true">
-        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#F5F7FA"/>
-        </svg>
-    </div>
-
-    <!-- ===== CONTEÚDO ===== -->
-    <div class="pagina-corpo">
-
-        <div class="aviso-edicao">
-            <i class="fas fa-info-circle" aria-hidden="true"></i>
-            <span>Esta página é atualizada periodicamente com os documentos e informações referentes às parcerias vigentes. Em caso de dúvidas, entre em contato pelo e-mail <a href="mailto:efachapadinha@yahoo.com">efachapadinha@yahoo.com</a>.</span>
-        </div>
+        <hr>
 
         <!-- TERMO NOVA VENÉCIA -->
-        <div class="termo-card">
-            <h2><i class="fas fa-handshake" aria-hidden="true"></i> Termo de Fomento – Prefeitura de Nova Venécia</h2>
+        <h2>Termo de Fomento – Prefeitura de Nova Venécia</h2>
 
-            <div class="termo-info-grid">
-                <div class="termo-info-item">
-                    <strong>Valor total</strong>
-                    <span>R$ 490.000,00</span>
-                </div>
-                <div class="termo-info-item">
-                    <strong>Vigência</strong>
-                    <span>01/02/2026 a 31/01/2027</span>
-                </div>
-            </div>
+        <p><strong>Valor total:</strong> R$ 490.000,00</p>
+        <p><strong>Vigência:</strong> 01/02/2026 a 31/01/2027</p>
+        <p><strong>Objeto:</strong> Formação integral de jovens do meio rural por meio do Curso Técnico em Agropecuária
+            Integrado ao Ensino Médio, conforme Plano de Trabalho.</p>
 
-            <div class="termo-objeto">
-                <strong>Objeto</strong>
-                Formação integral de jovens do meio rural por meio do Curso Técnico em Agropecuária Integrado ao Ensino Médio, conforme Plano de Trabalho.
-            </div>
+        <h3>Documentos Disponíveis</h3>
+        <ul>
+            <li>Termo de Fomento assinado</li>
+            <li>Plano de Trabalho</li>
+            <li>Edital de Chamamento Público ou Justificativa de Dispensa</li>
+            <li>Cronograma de desembolso</li>
+            <li>Relatórios de execução (física e financeira)</li>
+            <li>Extratos bancários da conta vinculada</li>
+            <li>Notas fiscais e comprovantes</li>
+            <li>Prestação de contas parcial e final</li>
+            <li>Parecer técnico e financeiro da prefeitura</li>
+        </ul>
 
-            <h3><i class="fas fa-folder-open" aria-hidden="true"></i> Documentos Disponíveis</h3>
-            <ul class="docs-lista">
-                <li>Termo de Fomento assinado</li>
-                <li>Plano de Trabalho</li>
-                <li>Edital de Chamamento Público ou Justificativa de Dispensa</li>
-                <li>Cronograma de desembolso</li>
-                <li>Relatórios de execução (física e financeira)</li>
-                <li>Extratos bancários da conta vinculada</li>
-                <li>Notas fiscais e comprovantes</li>
-                <li>Prestação de contas parcial e final</li>
-                <li>Parecer técnico e financeiro da prefeitura</li>
-            </ul>
-        </div>
+        <hr>
 
         <!-- TERMO VILA PAVÃO -->
-        <div class="termo-card">
-            <h2><i class="fas fa-handshake" aria-hidden="true"></i> Termo de Fomento – Prefeitura de Vila Pavão</h2>
+        <h2>Termo de Fomento – Prefeitura de Vila Pavão</h2>
 
-            <div class="termo-info-grid">
-                <div class="termo-info-item">
-                    <strong>Valor total</strong>
-                    <span>R$ 30.000,00</span>
-                </div>
-                <div class="termo-info-item">
-                    <strong>Vigência</strong>
-                    <span>Julho/2025 a Julho/2026</span>
-                </div>
-                <div class="termo-info-item">
-                    <strong>Meta de atendimento</strong>
-                    <span>Até 25 estudantes de Vila Pavão</span>
-                </div>
-            </div>
+        <p><strong>Valor total:</strong> R$ 30.000,00</p>
+        <p><strong>Vigência:</strong> Julho/2025 a Julho/2026</p>
+        <p><strong>Meta de atendimento:</strong> Até 25 estudantes do município de Vila Pavão</p>
 
-            <div class="termo-objeto">
-                <strong>Objeto</strong>
-                Melhoria estrutural com ações integradas para sustentabilidade e fortalecimento da educação do campo, incluindo ampliação do sistema de energia solar, aquisição de freezer de alta eficiência e reforço na compra de alimentos, conforme Plano de Trabalho.
-            </div>
+        <p><strong>Objeto:</strong>
+            Melhoria estrutural com ações integradas para sustentabilidade e fortalecimento da educação do campo,
+            incluindo ampliação do sistema de energia solar, aquisição de freezer de alta eficiência e reforço na compra
+            de alimentos, conforme Plano de Trabalho.
+        </p>
 
-            <h3><i class="fas fa-folder-open" aria-hidden="true"></i> Documentos Disponíveis</h3>
-            <ul class="docs-lista">
-                <li>Termo de Fomento assinado</li>
-                <li>Plano de Trabalho</li>
-                <li>Edital de Chamamento Público ou Justificativa de Dispensa</li>
-                <li>Cronograma de desembolso</li>
-                <li>Relatórios de execução (física e financeira)</li>
-                <li>Extratos bancários da conta vinculada</li>
-                <li>Notas fiscais e comprovantes</li>
-                <li>Prestação de contas parcial e final</li>
-                <li>Parecer técnico e financeiro da prefeitura</li>
-            </ul>
-        </div>
+        <h3>Documentos Disponíveis</h3>
+        <ul>
+            <li>Termo de Fomento assinado</li>
+            <li>Plano de Trabalho</li>
+            <li>Edital de Chamamento Público ou Justificativa de Dispensa</li>
+            <li>Cronograma de desembolso</li>
+            <li>Relatórios de execução (física e financeira)</li>
+            <li>Extratos bancários da conta vinculada</li>
+            <li>Notas fiscais e comprovantes</li>
+            <li>Prestação de contas parcial e final</li>
+            <li>Parecer técnico e financeiro da prefeitura</li>
+        </ul>
 
-        <!-- SOBRE A OSC -->
-        <div class="osc-card">
-            <h2><i class="fas fa-building" aria-hidden="true"></i> Sobre a OSC</h2>
-            <div class="osc-grid">
-                <div class="osc-item">
-                    <strong>Nome</strong>
-                    <span>Movimento de Educação Promocional do Espírito Santo – MEPES</span>
-                </div>
-                <div class="osc-item">
-                    <strong>CNPJ</strong>
-                    <span>27.097.229/0017-00</span>
-                </div>
-                <div class="osc-item">
-                    <strong>Endereço</strong>
-                    <span>Estrada BR 342, Km 107,5 – Chapadinha – Nova Venécia/ES</span>
-                </div>
-                <div class="osc-item">
-                    <strong>E-mail</strong>
-                    <a href="mailto:efachapadinha@yahoo.com">efachapadinha@yahoo.com</a>
-                </div>
-                <div class="osc-item">
-                    <strong>Telefone</strong>
-                    <span>(27) 3116-0955</span>
-                </div>
-            </div>
-        </div>
+        <hr>
 
-    </div>
+        <h2>Sobre a OSC</h2>
+        <p><strong>Nome:</strong> Movimento de Educação Promocional do Espírito Santo – MEPES</p>
+        <p><strong>CNPJ:</strong> 27.097.229/0017-00</p>
+        <p><strong>Endereço:</strong> Estrada BR 342, Km 107,5 – Chapadinha – Nova Venécia – ES</p>
+        <p><strong>E-mail:</strong> efachapadinha@yahoo.com.br</p>
+        <p><strong>Telefone:</strong> (27) 3116-0955</p>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <p>© 2025 Escola Família Agrícola de Chapadinha · CNPJ 27.097.229/0017-00 · Nova Venécia/ES</p>
-    </footer>
+    </section>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu   = document.getElementById('navMenu');
-
-        hamburger.addEventListener('click', () => {
-            const aberto = navMenu.classList.toggle('aberto');
-            hamburger.classList.toggle('ativo');
-            hamburger.setAttribute('aria-expanded', aberto);
-            navMenu.setAttribute('aria-hidden', !aberto);
-        });
-    </script>
 </body>
 </html>
