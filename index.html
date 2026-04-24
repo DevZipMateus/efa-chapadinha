@@ -266,6 +266,16 @@
 
         .hero-slide.active {
             opacity: 1;
+            animation: kenBurns 3s ease-in-out forwards;
+        }
+
+        .hero-slide.leaving {
+            transform: scale(1.12) translate(-3%, 2%);
+        }
+
+        @keyframes kenBurns {
+            0%   { transform: scale(1)    translate(0%,   0%); }
+            100% { transform: scale(1.12) translate(-3%,  2%); }
         }
 
         /* Cursor piscante do typewriter */
@@ -393,6 +403,7 @@
             margin-bottom: 44px;
             font-weight: 600;
             max-width: 720px;
+            min-height: 8em;
         }
 
         .hero-btns {
@@ -2387,7 +2398,11 @@
             if (slides.length > 1) {
                 let slideAtual = 0;
                 setInterval(() => {
-                    slides[slideAtual].classList.remove('active');
+                    const saindo = slides[slideAtual];
+                    saindo.classList.remove('active');
+                    saindo.classList.add('leaving');
+                    setTimeout(() => saindo.classList.remove('leaving'), 1500);
+
                     slideAtual = (slideAtual + 1) % slides.length;
                     const novo = slides[slideAtual];
                     novo.style.animation = 'none';
